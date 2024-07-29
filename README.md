@@ -7,8 +7,8 @@
 ### 1. Клонируйте репозиторий
 
 ```bash
-git clone <URL_ВАШЕГО_РЕПОЗИТОРИЯ>
-cd <ПАПКА_С_ПРОЕКТОМ>
+git clone https://github.com/doossee/prayers-and-weather.git
+cd prayers-and-weather
 ```
 
 ### 2. Создайте и активируйте виртуальное окружение
