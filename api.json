@@ -1,0 +1,20 @@
+{
+    "region":"Toshkent",
+    "regionNumber":27,
+    "month":4,
+    "day":5,
+    "date":"2024-04-05T00:00:00.000Z",
+    "hijri_date":{
+        "month":"shavvol",
+        "day":26
+    },
+    "weekday":"Juma",
+    "times":{
+        "tong_saharlik":"04:38",
+        "quyosh":"05:59",
+        "peshin":"12:26",
+        "asr":"16:59",
+        "shom_iftor":"18:56",
+        "hufton":"20:11"
+    }
+}

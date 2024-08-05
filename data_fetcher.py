@@ -1,19 +1,20 @@
 import requests
-from datetime import datetime, timedelta
+from datetime import timedelta, date
 from hijri_converter import convert
 
 def get_prayer_times(region):
-    response = requests.get(f"https://islomapi.uz/api/present/week?region={region}")
-    data = response.json()
-
-    tomorrow = datetime.now() + timedelta(days=1)
-    tomorrow_date_str = tomorrow.strftime('%d/%m/%Y')
-
-    for day in data:
-        if day['date'].startswith(tomorrow_date_str):
-            return day['times']
-
-    raise ValueError(f"Prayer times for {tomorrow_date_str} not found in the API response.")
+    try:
+        tomorrow = date.today() + timedelta(days=1)
+        response = requests.get(f"https://islomapi.uz/api/daily?region={region}&month={tomorrow.month}&day={tomorrow.day}")
+        response.raise_for_status()  # This will raise an HTTPError if the HTTP request returned an unsuccessful status code
+        data = response.json()
+        return data['times']
+    except requests.RequestException as e:
+        print(f"An error occurred: {e}")
+        return None
+    except ValueError as e:
+        print(f"An error occurred while parsing JSON: {e}")
+        return None
 
 def get_weather_data(api_key, city):
     response = requests.get(f"http://api.weatherapi.com/v1/forecast.json?key={api_key}&q={city}&days=1&aqi=no&alerts=no")
