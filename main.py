@@ -21,11 +21,15 @@ REGIONS = [
     'Urgench,Uzbekistan'
 ]
 
+latitude = 41.2995
+longitude = 69.2401
+timezone = 5
+
 # Получить завтрашнюю дату
 tomorrow = datetime.now() + timedelta(days=1)
 
 # Получить время молитвы на завтра
-prayer_times = get_prayer_times('Toshkent')
+prayer_times = get_prayer_times(latitude, longitude, timezone)
 
 # Получить хиджрийский год на завтра
 hijri_year = get_hijri_year(tomorrow)
