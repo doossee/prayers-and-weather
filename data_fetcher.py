@@ -1,5 +1,4 @@
 import requests
-
 from datetime import datetime, timedelta, date
 from hijri_converter import convert
 from praytimes import PrayTimes
